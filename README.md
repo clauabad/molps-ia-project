@@ -2,17 +2,29 @@
 
 ## Structure du projet
 lab4-mlops/
+
 ├── configs/                # Configuration des modèles au format YAML
+
 ├── data/                   # Raw and processed datasets
+
 ├── deployment/
+
 │   └── mlflow/             # Configuration Docker Compose pour MLflow
+
 ├── models/                 # Modèles entraînés et préprocesseurs
+
 ├── notebooks/              # Notebooks Jupyter optionnels pour l’expérimentation
+
 ├── src/
+
 │   ├── data/               # Scripts de nettoyage et de prétraitement des données
+
 │   ├── features/           # Pipeline d’ingénierie des variables
+
 │   ├── models/             # Entraînement et évaluation des modèles
+
 ├── requirements.txt        # Dépendances Python
+
 └── README.md               # Vous êtes ici !
 
 
@@ -24,8 +36,6 @@ Pour commencer, assurez-vous que les outils suivants sont installés sur votre s
 
 -Visual Studio Code ou l’éditeur de votre choix
 
--UV – Gestionnaire de paquets et d’environnements Python
-
 -Docker Desktop
 
 ## Préparation de votre environnement
@@ -33,7 +43,7 @@ Pour commencer, assurez-vous que les outils suivants sont installés sur votre s
 
 Clonez le repo :
 
-git clone https://github.com/
+git clone https://github.com/clauabad/molps-ia-project.git
 cd mlops-ia-project
 
 Configurer un environnement virtuel Python avec UV :
@@ -45,12 +55,15 @@ Installer les dépendances :
 
 uv pip install -r requirements.txt
 
+
 ### Configurer MLflow pour le suivi des expérimentations
 Pour suivre les expérimentations et les exécutions de modèles, 
 on installe mlflow separé pour pouvoir choisir le mellieur modèle.
 
 cd deployment/mlflow
+
 docker compose up -d
+
 docker compose ps
 
 
@@ -89,7 +102,11 @@ python src/models/train_model.py \
 Dans le folder principal du projet:
 
 docker compose build
+
 Valider la création
+
 docker image ls
+
 Lancer le tout comme un ensemble de services (stack)
+
 docker compose up -d
