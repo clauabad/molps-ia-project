@@ -38,7 +38,7 @@ cd mlops-ia-project
 
 Configurer un environnement virtuel Python avec UV :
 
-uv venv --python python3.11
+python3.11 -m venv .venv
 source .venv/bin/activate
 
 Installer les dépendances :
@@ -50,8 +50,9 @@ Pour suivre les expérimentations et les exécutions de modèles,
 on installe mlflow separé pour pouvoir choisir le mellieur modèle.
 
 cd deployment/mlflow
-docker compose -f mlflow-docker-compose.yml up -d
+docker compose up -d
 docker compose ps
+
 
 Accédez à l’interface MLflow à l’adresse : http://localhost:5555
 
@@ -74,7 +75,7 @@ python src/features/engineer.py \
   --preprocessor models/trained/preprocessor.pkl
 
 - Étape 3 : Modélisation et expérimentation
-Entraînez votre modèle et enregistrez toutes les informations dans MLflow :
+Entraîner le modèle et enregistrez toutes les informations dans MLflow :
 
 python src/models/train_model.py \
   --config configs/model_config.yaml \
@@ -85,7 +86,7 @@ python src/models/train_model.py \
 
 ### Construire les images
 
-On the root of the project
+Dans le folder principal du projet:
 
 docker compose build
 Valider la création
